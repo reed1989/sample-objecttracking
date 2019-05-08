@@ -25,16 +25,20 @@ HIAI_REGISTER_DATA_TYPE("BatchImageParaWithScaleT", BatchImageParaWithScaleT);
 HIAI_REGISTER_SERIALIZE_FUNC("EvbImageInfo", EvbImageInfo, GetEvbImageInfoSearPtr, GetEvbImageInfoDearPtr);
 
 
-ObjectTrackingInference::~ObjectTrackingInference(){
-
-}
+//ObjectTrackingInference::~ObjectTrackingInference(){
+//
+//}
 
 HIAI_StatusT ObjectTrackingInference::Init(const hiai::AIConfig& config,const std::vector<hiai::AIModelDescription>& model_desc){
 
     HIAI_ENGINE_LOG(HIAI_IDE_INFO, "[ObjectTrackingInference] start init!");
     hiai::AIStatus ret = hiai::SUCCESS;
-    return ret;
+
+    return HIAI_OK;
 }
+
+
+//HIAI_StatusT CropTargetImage(const ImageData<u_int8_t> src_image, )
 
 /**
 * @ingroup hiaiengine
@@ -42,11 +46,35 @@ HIAI_StatusT ObjectTrackingInference::Init(const hiai::AIConfig& config,const st
 * @[in]: Define an input port, an output port,
 *        And the Engine is registered, its called "HIAIMultiEngineExample"
 */
-HIAI_IMPL_ENGINE_PROCESS("ObjectTrackingInference", ObjectTrackingInference, INPUT_SIZE)
+HIAI_IMPL_ENGINE_PROCESS("object_tracking_inference", ObjectTrackingInference, INPUT_SIZE)
 {
-    HIAI_ENGINE_LOG(HIAI_IDE_INFO, "[MindInferenceEngine_1] start process!");
+    HIAI_ENGINE_LOG(HIAI_IDE_INFO, "[ObjectTrackingInference] start process!");
     hiai::AIStatus ret = hiai::SUCCESS;
     HIAI_StatusT hiai_ret = HIAI_OK;
+    if (arg0 == nullptr) {
+        HIAI_ENGINE_LOG(HIAI_ENGINE_RUN_ARGS_NOT_RIGHT,
+                        "Failed to process invalid message.");
+        return HIAI_ERROR;
+    }
+
+    std::shared_ptr<BatchImageParaWithScaleT> image_handle =
+            std::static_pointer_cast<BatchImageParaWithScaleT>(arg0);
+
+    // check this bath is the first batch or not
+    if (image_handle->b_info.is_first){
+        HIAI_ENGINE_LOG(HIAI_IDE_INFO, "This batch is the first batch");
+        ImageData<u_int8_t> croped_image;
+        //HIAI_StatusT crop_ret =
+
+    }
+
+    for (uint32_t i = 0; i < image_handle->b_info.batch_size; i++) {
+        HIAI_ENGINE_LOG(HIAI_IDE_INFO, "Start to deal with the image %d",
+                        image_handle->b_info.batch_ID);
+
+    }
+
+
 
     return HIAI_OK;
 

@@ -26,12 +26,12 @@ public:
     /**
      * @brief constructor
      */
-    ObjectTrackingPostProcess();
+    ObjectTrackingPostProcess() = default;
 
     /**
      * @brief
      */
-    ~ObjectTrackingPostProcess();
+    ~ObjectTrackingPostProcess() = default;
 
     HIAI_StatusT Init(const hiai::AIConfig& config,
                       const std::vector<hiai::AIModelDescription>& model_desc);

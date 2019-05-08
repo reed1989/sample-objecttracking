@@ -40,7 +40,7 @@ HIAI_StatusT ObjectTrackingPostProcess::Init(const hiai::AIConfig& config, const
 //    return hiai_ret;
 //}
 
-HIAI_IMPL_ENGINE_PROCESS("ObjectTrackingPostProcess", ObjectTrackingPostProcess, INPUT_SIZE)
+HIAI_IMPL_ENGINE_PROCESS("object_tracking_post_process", ObjectTrackingPostProcess, INPUT_SIZE)
 {
     HIAI_ENGINE_LOG(HIAI_IDE_INFO, "[ObjectTrackingPostProcess] start process!");
 

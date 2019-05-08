@@ -23,8 +23,8 @@ using hiai::Engine;
 
 class ObjectTrackingInference : public hiai::Engine {
 public:
-    ObjectTrackingInference();
-    ~ObjectTrackingInference();
+    ObjectTrackingInference() = default;
+    ~ObjectTrackingInference() = default;
     HIAI_StatusT Init(const hiai::AIConfig& config,
                       const std::vector<hiai::AIModelDescription>& model_desc);
     /**

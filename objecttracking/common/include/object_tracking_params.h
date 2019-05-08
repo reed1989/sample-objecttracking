@@ -1,5 +1,5 @@
-#ifndef BatchImageParaWithScale_H_
-#define BatchImageParaWithScale_H_
+#ifndef ObjectTrackingParams_H_
+#define ObjectTrackingParams_H_
 
 #include "hiaiengine/data_type.h"
 #include "hiaiengine/data_type_reg.h"
@@ -337,4 +337,4 @@ std::string GetInfoFilePath(const std::string pathConfig) {
     HIAI_ENGINE_LOG(HIAI_IDE_INFO, "info file:%s", info_file_.c_str());
     return info_file_;
 }
-#endif
+#endif /* ObjectTrackingParams_H_ */
